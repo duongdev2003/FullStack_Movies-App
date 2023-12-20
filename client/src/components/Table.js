@@ -15,7 +15,7 @@ const Rows = (movie, i, admin) => {
                 <div className="w-12 p-1 bg-dry border border-border h-12 rounded overflow-hidden">
                     <img
                         className="h-full w-full object-cover"
-                        src={`/images/movies/${movie.titleImage}`}
+                        src={movie?.image ? movie?.image : "images/user.png"}
                         alt={movie?.name}
                     />
                 </div>
@@ -24,7 +24,7 @@ const Rows = (movie, i, admin) => {
             <td className={`${Text}`}>{movie.category}</td>
             <td className={`${Text}`}>{movie.language}</td>
             <td className={`${Text}`}>{movie.year}</td>
-            <td className={`${Text}`}>{movie.time}</td>
+            <td className={`${Text}`}>{movie.time}hr</td>
             <td className={`${Text} float-right flex-rows gap-2`}>
                 {admin ? (
                     <>
@@ -42,7 +42,7 @@ const Rows = (movie, i, admin) => {
                             <FaCloudDownloadAlt className="text-green-500" />
                         </button>
                         <Link
-                            to={`/movie/${movie?.name}`}
+                            to={`/movie/${movie?.id}`}
                             className="bg-subMain text-white rounded flex-colo w-6 h-6"
                         >
                             <FaEye />

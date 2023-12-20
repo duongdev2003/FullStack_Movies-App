@@ -97,3 +97,42 @@ export const userChangePasswordReducer = (state = {}, action) => {
             return state;
     }
 };
+
+// Get favorite movies
+export const userGetFavoriteMoviesReducer = (
+    state = {
+        likedMovies: [],
+    },
+    action
+) => {
+    switch (action.type) {
+        case userConstants.GET_FAVORITE_MOVIES_REQUEST:
+            return { isLoading: true };
+        case userConstants.GET_FAVORITE_MOVIES_SUCCESS:
+            return {
+                isLoading: false,
+                likedMovies: action.payload,
+            };
+        case userConstants.GET_FAVORITE_MOVIES_FAIL:
+            return { isLoading: false, isError: action.payload };
+        case userConstants.GET_FAVORITE_MOVIES_RESET:
+            return {};
+        default:
+            return state;
+    }
+};
+// Delete favorite movies
+export const userDeleteFavoriteMoviesReducer = (state = {}, action) => {
+    switch (action.type) {
+        case userConstants.DELETE_FAVORITE_MOVIES_REQUEST:
+            return { isLoading: true };
+        case userConstants.DELETE_FAVORITE_MOVIES_SUCCESS:
+            return { isLoading: false, isSuccess: true };
+        case userConstants.DELETE_FAVORITE_MOVIES_FAIL:
+            return { isLoading: false, isError: action.payload };
+        case userConstants.DELETE_FAVORITE_MOVIES_RESET:
+            return {};
+        default:
+            return state;
+    }
+};

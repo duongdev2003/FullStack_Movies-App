@@ -54,7 +54,7 @@ function Footer() {
                 },
                 {
                     name: "My Favorites",
-                    link: "/favorite",
+                    link: "/favorites",
                 },
                 {
                     name: "Profile",
@@ -105,10 +105,10 @@ function Footer() {
                             />
                         </Link>
                         <p className="leading-7 text-sm text-border mt-3">
-                            <span>43 Andrew Tran Quoc Vuong</span>
+                            <span>43 Andrew Tran Quoc Vuong, Cau Giay, Ha Noi</span>
                             <br />
                             <span>Ha Noi, NY 100000</span> <br />
-                            <span>Tell: +123 456 789 000</span> <br />
+                            <span>Tell: +84 347 xxx 100</span> <br />
                             <span>Email: duongintech@gmail.com</span> <br />
                         </p>
                     </div>
