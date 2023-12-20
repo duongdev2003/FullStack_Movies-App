@@ -24,14 +24,47 @@ const loginService = async (user) => {
     return data;
 };
 
-const updateProfileService = async (user) => {
-    const { data } = await Axios.put("/users/profile", user);
+// Update profile API call
+const updateProfileService = async (user, token) => {
+    const { data } = await Axios.put("/users", user, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
     if (data) {
         localStorage.setItem("/users", user);
     }
     return data;
 };
 
-export { registerService, logoutService, loginService, updateProfileService };
+// Delete profile API call
+const deleteProfileService = async (token) => {
+    const { data } = await Axios.delete("/users", {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    if (data) {
+        localStorage.removeItem("userInfo");
+    }
+    return data;
+};
 
-// Update profile API call
+// Change password API call
+const changePasswordService = async (passwords, token) => {
+    const { data } = await Axios.put("/users/password", passwords, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    return data;
+};
+
+export {
+    registerService,
+    logoutService,
+    loginService,
+    updateProfileService,
+    deleteProfileService,
+    changePasswordService,
+};

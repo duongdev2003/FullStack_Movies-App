@@ -9,7 +9,7 @@ import { LoginValidation } from "../components/validation/userValidation";
 import { InlineError } from "./../components/notfications/Error";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginAction } from "../redux/actions/userActions";
-import  toast  from "react-hot-toast";
+import toast from "react-hot-toast";
 
 function Login() {
     const dispatch = useDispatch();
@@ -30,7 +30,6 @@ function Login() {
     // On submit
     const onSubmit = (data) => {
         dispatch(loginAction(data));
-        console.log(data);
     };
 
     // useEffect
@@ -41,13 +40,13 @@ function Login() {
             navigate("/profile");
         }
         if (isSuccess) {
-            toast.success(`Welcome back ${userInfo?.fullName}`);
+            toast.success(`Welcome ${userInfo?.fullName}`);
         }
         if (isError) {
             toast.error(isError);
             dispatch({ type: "USER_LOGIN_RESET" });
         }
-    }, [userInfo, isSuccess,isError, navigate, dispatch]);
+    }, [userInfo, isSuccess, isError, navigate, dispatch]);
 
     return (
         <Layout>
@@ -70,7 +69,9 @@ function Login() {
                             register={register("email")}
                             bg={true}
                         />
-                        {errors.email && <InlineError text={errors.email.message} />}
+                        {errors.email && (
+                            <InlineError text={errors.email.message} />
+                        )}
                     </div>
                     <div className="w-full">
                         <Input
@@ -80,7 +81,9 @@ function Login() {
                             name="password"
                             register={register("password")}
                         />
-                        {errors.password && <InlineError text={errors.password.message} />}
+                        {errors.password && (
+                            <InlineError text={errors.password.message} />
+                        )}
                     </div>
 
                     <button

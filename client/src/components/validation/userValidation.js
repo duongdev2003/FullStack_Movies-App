@@ -27,5 +27,41 @@ const RegisterValidation = yup.object().shape({
         .matches(/^[a-zA-Z ]*$/, "Full name must contain only letters"),
 });
 
+const ProfileValidation = yup.object().shape({
+    fullName: yup
+        .string()
+        .required("Name is required")
+        .max(20, "Full name must be at most 20 characters")
+        .matches(/^[a-zA-Z ]*$/, "Full name must contain only letters"),
+    email: yup.string().email().required("Email is required").trim(),
+});
 
-export { LoginValidation, RegisterValidation };
+const PasswordValidation = yup.object().shape({
+    oldPassword: yup
+        .string()
+        .required("Password is required")
+        .min(8, "Password must be at least 8 characters")
+        .max(20, "Password must be less than 20 characters")
+        .matches(/(?=.*[0-9])/, "Password must contain a number"),
+    newPassword: yup
+        .string()
+        .required("Password is required")
+        .min(8, "Password must be at least 8 characters")
+        .max(20, "Password must be less than 20 characters")
+        .matches(/(?=.*[0-9])/, "Password must contain a number"),
+    confirmPassword: yup
+        .string()
+        .required("Password is required")
+        .min(8, "Password must be at least 8 characters")
+        .max(20, "Password must be less than 20 characters")
+        .matches(/(?=.*[0-9])/, "Password must contain a number")
+        .oneOf([yup.ref("newPassword"), null], "Passwords must match"),
+});
+
+
+export {
+    LoginValidation,
+    RegisterValidation,
+    ProfileValidation,
+    PasswordValidation,
+};

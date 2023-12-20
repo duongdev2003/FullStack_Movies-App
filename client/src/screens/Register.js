@@ -30,7 +30,7 @@ function Register() {
     // On submit
     const onSubmit = (data) => {
         dispatch(registerAction(data));
-        console.log(data);
+        // console.log(data);
     };
 
     // useEffect
