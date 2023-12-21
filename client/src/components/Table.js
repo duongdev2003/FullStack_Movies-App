@@ -42,7 +42,7 @@ const Rows = (movie, i, admin) => {
                             <FaCloudDownloadAlt className="text-green-500" />
                         </button>
                         <Link
-                            to={`/movie/${movie?.id}`}
+                            to={`/movie/${movie?._id}`}
                             className="bg-subMain text-white rounded flex-colo w-6 h-6"
                         >
                             <FaEye />

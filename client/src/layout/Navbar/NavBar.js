@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 function NavBar() {
     const { userInfo } = useSelector((state) => state.userLogin);
+    const { likedMovies } = useSelector((state) => state.userGetFavoriteMovies);
     const hover = "hover:text-subMain transitons text-white";
     const Hover = ({ isActive }) => (isActive ? "text-subMain" : hover);
     return (
@@ -79,7 +80,7 @@ function NavBar() {
                         >
                             <RiHeartsFill className="w-7 h-7" />
                             <div className="w-5 h-5 flex-colo rounded-full text-xs bg-subMain text-white absolute -top-5 -right-1">
-                                10
+                                {likedMovies?.length}
                             </div>
                         </NavLink>
                     </div>
