@@ -45,7 +45,7 @@ const getMovies = asyncHandler(async (req, res) => {
         // Get total number of movies
         const count = await Movie.countDocuments(query);
 
-        // Send repsonse with movies and total number of movies
+        // Send response with movies and total number of movies
         res.json({
             movies,
             page,

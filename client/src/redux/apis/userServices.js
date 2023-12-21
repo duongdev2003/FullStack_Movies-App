@@ -1,5 +1,5 @@
 import Axios from "./Axios";
-
+// ************* PUBLIC APIs *************
 // Register new user API call
 const registerService = async (user) => {
     const { data } = await Axios.post("/users", user);
@@ -24,6 +24,7 @@ const loginService = async (user) => {
     return data;
 };
 
+// ************* PRIVATE APIs *************
 // Update profile API call
 const updateProfileService = async (user, token) => {
     const { data } = await Axios.put("/users", user, {
@@ -80,6 +81,7 @@ const deleteFavoriteMovies = async (token) => {
     return data;
 };
 
+// ************* ADMIN APIs *************
 // Admin get all users
 const getAllUsersService = async (token) => {
     const { data } = await Axios.get("/users", {

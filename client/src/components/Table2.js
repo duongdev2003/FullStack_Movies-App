@@ -47,10 +47,9 @@ const Rows = ({ data, users, OnEditFunction, onDeleteFunction }) => {
             ) : (
                 //Categories
                 <>
-                    <td className={`${Text} font-bold`}>2R75T8</td>
-                    <td className={`${Text}`}>
-                        {data.createAt ? data.createAt : "12, December 2023"}
+                    <td className={`${Text} font-bold`}>{data?._id ? shortUppercaseId(data?._id) : "2R75T8"}
                     </td>
+                    <td className={`${Text}`}>{DateFormat(data?.createdAt)}</td>
                     <td className={`${Text}`}>{data.title}</td>
                     <td className={`${Text} float-right flex-rows gap-2`}>
                         <button
@@ -59,7 +58,10 @@ const Rows = ({ data, users, OnEditFunction, onDeleteFunction }) => {
                         >
                             Edit <FaEdit className="text-green-500" />
                         </button>
-                        <button className="bg-subMain text-white rounded flex-colo w-6 h-6">
+                        <button
+                            onClick={() => onDeleteFunction(data?._id)}
+                            className="bg-subMain text-white rounded flex-colo w-6 h-6"
+                        >
                             <MdDelete />
                         </button>
                     </td>
@@ -106,7 +108,7 @@ function Table2({ data, users, OnEditFunction, onDeleteFunction }) {
                                     DATE
                                 </th>
                                 <th scope="col" className={`${Head}`}>
-                                    TITLE
+                                    NAME
                                 </th>
                             </>
                         )}

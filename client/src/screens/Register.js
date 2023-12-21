@@ -99,12 +99,18 @@ function Register() {
                             <InlineError text={errors.password.message} />
                         )}
                     </div>
-                    {/* <Input
-                        label="Confirm Password"
-                        placeholder="********"
-                        type="confirmpassword"
-                        bg={true}
-                    /> */}
+                    {/* <div className="w-full">
+                        <Input
+                            label="Confrim Password"
+                            placeholder="********"
+                            type="confirmpassword"
+                            name="confirmpassword"
+                            register={register("confirmpassword")}
+                        />
+                        {errors.confirmpassword && (
+                            <InlineError text={errors.confirmpassword.message} />
+                        )}
+                    </div> */}
                     <button
                         type="submit"
                         disabled={isLoading}
