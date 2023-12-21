@@ -51,4 +51,8 @@ export const CategoriesData = [
         _id: "13",
         title: "Science",
     },
+    {
+        _id: "14",
+        title: "Mystery",
+    },
 ];
