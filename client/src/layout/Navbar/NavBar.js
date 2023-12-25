@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
-import { RiHeartsFill, RiUserAddLine } from "react-icons/ri";
+import { FaSearch, FaHeart } from "react-icons/fa";
+import { RiUserAddLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 
 function NavBar() {
     const { userInfo } = useSelector((state) => state.userLogin);
     const { likedMovies } = useSelector((state) => state.userGetFavoriteMovies);
-    const hover = "hover:text-subMain transitons text-white";
+    const hover = "hover:text-subMain transitions text-white";
     const Hover = ({ isActive }) => (isActive ? "text-subMain" : hover);
     return (
         <>
@@ -39,7 +39,7 @@ function NavBar() {
                             />
                         </form>
                     </div>
-                    {/* Menu */}
+                    {/* Menus */}
                     <div className="col-span-3 font-medium text-sm hidden xl:gap-14 2xl:gap-20 justify-between lg:flex xl:justify-end items-center">
                         <NavLink to="/movies" className={Hover}>
                             Movies
@@ -78,7 +78,7 @@ function NavBar() {
                             to="/favorites"
                             className={`${Hover} relative`}
                         >
-                            <RiHeartsFill className="w-7 h-7" />
+                            <FaHeart className="w-7 h-7" />
                             <div className="w-5 h-5 flex-colo rounded-full text-xs bg-subMain text-white absolute -top-5 -right-1">
                                 {likedMovies?.length}
                             </div>

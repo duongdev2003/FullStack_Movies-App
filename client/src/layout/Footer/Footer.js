@@ -105,7 +105,9 @@ function Footer() {
                             />
                         </Link>
                         <p className="leading-7 text-sm text-border mt-3">
-                            <span>43 Andrew Tran Quoc Vuong, Cau Giay, Ha Noi</span>
+                            <span>
+                                43 Andrew Tran Quoc Vuong, Cau Giay, Ha Noi
+                            </span>
                             <br />
                             <span>Ha Noi, NY 100000</span> <br />
                             <span>Tell: +84 347 xxx 100</span> <br />

@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import FlexMovieItems from "./../FlexMovieItems";
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
-import { Movies } from './../../data/MoviesData';
+import {Movies} from "../../data/MoviesData";
+
 
 function Banner() {
     return (
@@ -29,7 +30,7 @@ function Banner() {
                             alt={movie.name}
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute linear-bg xl:pl-52 sm:pl-32 pl-8 top-0 bottom-0 w-full right-0 left-0 flex flex-col justify-center lg:gap-8 md:gap-5 gap-4">
+                        <div className="absolute linear-bg xl:pl-52 sm:pl-32 pl-8 top-0 bottom-0 right-0 left-0 flex flex-col justify-center lg:gap-8 md:gap-5 gap-4">
                             <h1 className="xl:text-4xl truncate capitalize font-sans sm:text-2xl text-xl font-bold">
                                 {movie.name}
                             </h1>

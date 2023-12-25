@@ -17,4 +17,5 @@ function PopularMovies() {
     );
 }
 
+
 export default PopularMovies;

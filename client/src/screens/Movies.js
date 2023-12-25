@@ -5,7 +5,7 @@ import Movie from "./../components/Movie";
 import { Movies } from "../data/MoviesData";
 import { CgSpinner } from "react-icons/cg";
 function MoviesPage() {
-    const maxPage = 8;
+    const maxPage = 10;
     const [page, setPage] = useState(maxPage);
     const HandleLoadingMore = () => {
         setPage(page + maxPage);

@@ -31,7 +31,7 @@ function AboutUs() {
                             <div className="grid md:grid-cols-2 gap-6 mt-8">
                                 <div className="p-8 bg-dry rounded-lg">
                                     <span className="text-3xl block font-extrabold">
-                                        100K +
+                                        50K +
                                     </span>
                                     <h4 className="text-lg font-semibold my-2">
                                         Listed Movies
