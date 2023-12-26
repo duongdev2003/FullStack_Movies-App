@@ -1,18 +1,23 @@
 import { Listbox, Transition } from "@headlessui/react";
-import React, {Fragment, useEffect, useState} from "react";
+import React, {Fragment} from "react";
 import { FaAngleDown, FaCheck } from "react-icons/fa";
-import {useDispatch} from "react-redux";
 import {YearData, TimesData, RatesData, LanguageData} from "../data/FilterData";
-import {getAllMoviesAction} from "../redux/actions/moviesActions";
 
 
-function Filters({categories}) {
-    const dispatch = useDispatch()
-    const [category, setCategory] = useState({ title: "All Categories" });
-    const [year, setYear] = useState(YearData[0]);
-    const [times, setTimes] = useState(TimesData[0]);
-    const [rates, setRates] = useState(RatesData[0]);
-    const [language, setLanguage] = useState(LanguageData[0]);
+function Filters(props) {
+    const {
+        categories,
+        category,
+        setCategory,
+        language,
+        setLanguage,
+        year,
+        setYear,
+        times,
+        setTimes,
+        rates,
+        setRates,
+    } = props?.data;
 
     const Filter = [
         {
@@ -44,21 +49,8 @@ function Filters({categories}) {
         },
     ];
 
-    useEffect(() => {
-        if(category?.title !== "No category found"){
-            dispatch(getAllMoviesAction({
-                category: category?.title === "All Categories" ? "" : category?.title,
-                times: times?.title.replace(/\D/g, ""),
-                language: language?.title === "Sort By Language" ? "" : language?.title,
-                rate: rates?.title.replace(/\D/g, ""),
-                year: year?.title.replace(/\D/g, ""),
-                search: "",
-            }));
-        }
-    }, [category, language, year, times, rates, dispatch]);
-
     return (
-        <div className="my-6 bg-dry border text-dryGray border-gray-800 grid md:grid-cols-4 grid-cols-2 lg:gap-12 gap-2 rounded p-6">
+        <div className="my-6 bg-dry border text-dryGray border-gray-800 grid md:grid-cols-5 grid-cols-2 lg:gap-12 gap-2 rounded p-6">
             {Filter.map((item, index) => (
                 <Listbox
                     key={index}

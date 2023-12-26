@@ -31,7 +31,7 @@ const getMovies = asyncHandler(async (req, res) => {
             ...(search && { name: { $regex: search, $options: "i" } }),
         };
 
-        // Load more movies functionlity
+        // Load more movies functionality
         const page = Number(req.query.pageNumber) || 1; // If page number is not provided in quury  we set it to 1
         const limit = 2; // 2 movies per page
         const skip = (page - 1) * limit; // Skip 2 movies per page
